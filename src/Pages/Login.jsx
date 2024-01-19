@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, signInWithRedirect, GoogleAuthProvider } from 'firebase/auth';
 import app from '../Firebase';
 
 
@@ -11,7 +11,7 @@ const Login = () => {
   const googleProvider = new GoogleAuthProvider();
 
   const handleGoogle = () => {
-    signInWithPopup( auth, googleProvider)
+    signInWithRedirect( auth, googleProvider)
     .catch((error) => {
       console.log(error.message);
     });
